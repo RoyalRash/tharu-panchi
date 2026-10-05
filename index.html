@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09040c" />
+  <title>For My Tharu Panchi ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #09040c;
+      --bg2: #120815;
+      --pink: #ff7fae;
+      --rose: #ff4f87;
+      --gold: #f6d8a8;
+      --text: #fff8fb;
+      --muted: #d9bdc8;
+      --glass: rgba(255,255,255,.07);
+      --glass-border: rgba(255,255,255,.13);
+      --shadow: 0 18px 80px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,79,135,.10), transparent 32%),
+        radial-gradient(circle at 80% 0%, rgba(246,216,168,.08), transparent 25%),
+        linear-gradient(180deg, #070309 0%, #100611 48%, #09040c 100%);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.locked { overflow: hidden; }
+
+    ::selection {
+      background: rgba(255,127,174,.35);
+      color: white;
+    }
+
+    #starfield {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: .03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    }
+
+    h1,h2,h3,p { margin-top: 0; }
+    a { color: inherit; text-decoration: none; }
+
+    .script {
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+    }
+
+    .serif {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .eyebrow {
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--gold);
+      opacity: .9;
+      margin-bottom: 14px;
+    }
+
+    .wrap {
+      width: min(1100px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 105px 0;
+      position: relative;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 52px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: .95;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 650px;
+      margin-inline: auto;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.04));
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: .01em;
+      background: linear-gradient(135deg, #ff5f98, #ff7fad);
+      box-shadow: 0 12px 30px rgba(255,79,135,.28);
+      transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 16px 38px rgba(255,79,135,.38);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: none;
+    }
+
+    /* INTRO */
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255,89,145,.18), transparent 32%),
+        linear-gradient(180deg, #050207, #100612);
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    .intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-card {
+      text-align: center;
+      max-width: 720px;
+      animation: introFloat 4s ease-in-out infinite;
+    }
+
+    .intro-heart {
+      font-size: 44px;
+      filter: drop-shadow(0 0 16px rgba(255,100,150,.55));
+      margin-bottom: 20px;
+    }
+
+    .intro h1 {
+      font-size: clamp(3.2rem, 10vw, 6.8rem);
+      line-height: .9;
+      margin-bottom: 18px;
+      color: #fff5f9;
+    }
+
+    .intro p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.2rem, 3vw, 1.65rem);
+      line-height: 1.6;
+      color: #e9d4dc;
+      margin-bottom: 30px;
+    }
+
+    @keyframes introFloat {
+      50% { transform: translateY(-8px); }
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      position: relative;
+      padding: 100px 18px 70px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      width: 520px;
+      height: 520px;
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,73,137,.08);
+      filter: blur(80px);
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero .script {
+      font-size: clamp(4.5rem, 14vw, 9rem);
+      line-height: .75;
+      color: #ffdbe7;
+      text-shadow: 0 0 30px rgba(255,127,174,.18);
+      margin: 20px 0 32px;
+    }
+
+    .hero .lead {
+      max-width: 720px;
+      margin: 0 auto 34px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.4rem, 3vw, 2.05rem);
+      line-height: 1.5;
+      color: #f3e7ec;
+    }
+
+    .hero-mini {
+      color: var(--muted);
+      font-size: .92rem;
+      letter-spacing: .03em;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #cdb9c0;
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    /* COUNTER */
+    .counter-box {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .counter-item {
+      padding: 27px 12px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .counter-item strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 7vw, 4rem);
+      line-height: 1;
+      color: #ffe8ef;
+    }
+
+    .counter-item span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .68rem;
+    }
+
+    /* STORY */
+    .story-card {
+      border-radius: 30px;
+      padding: clamp(26px, 5vw, 54px);
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .date-badge {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.16);
+      background: radial-gradient(circle at 30% 30%, rgba(255,126,173,.22), rgba(255,255,255,.03));
+      box-shadow: inset 0 0 50px rgba(255,90,146,.08), 0 30px 70px rgba(0,0,0,.32);
+    }
+
+    .date-badge .day {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 4rem;
+      line-height: .7;
+    }
+
+    .date-badge .month {
+      margin-top: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .7rem;
+    }
+
+    .story-copy h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      margin-bottom: 12px;
+    }
+
+    .story-copy p {
+      color: #dfcdd5;
+      line-height: 1.9;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+    }
+
+    /* GALLERY */
+    .gallery {
+      columns: 3 260px;
+      column-gap: 18px;
+    }
+
+    .photo-card {
+      break-inside: avoid;
+      margin-bottom: 18px;
+      border-radius: 18px;
+      padding: 9px 9px 14px;
+      background: #f7edf0;
+      color: #322129;
+      transform: rotate(var(--r, 0deg));
+      transition: transform .35s ease, box-shadow .35s ease;
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+    }
+
+    .photo-card:hover {
+      transform: rotate(0deg) scale(1.025);
+      box-shadow: 0 24px 55px rgba(0,0,0,.38);
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      background: #2b2026;
+      min-height: 180px;
+      object-fit: cover;
+    }
+
+    .photo-card figcaption {
+      font-family: "Great Vibes", cursive;
+      text-align: center;
+      font-size: 1.55rem;
+      margin: 10px 4px 0;
+    }
+
+    /* LOVE REASONS */
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+
+    .reason {
+      min-height: 170px;
+      border-radius: 22px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .reason:hover { transform: translateY(-5px); border-color: rgba(255,127,174,.35); }
+
+    .reason .emoji { font-size: 1.7rem; }
+    .reason .hidden-reason {
+      color: #e9d8df;
+      line-height: 1.7;
+      opacity: .68;
+      filter: blur(5px);
+      transition: all .35s ease;
+      user-select: none;
+    }
+
+    .reason.revealed .hidden-reason {
+      opacity: 1;
+      filter: none;
+    }
+
+    .reason small {
+      color: #bc9faa;
+      margin-top: 16px;
+    }
+
+    /* OPEN WHEN */
+    .letters {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 18px;
+    }
+
+    .letter {
+      border-radius: 26px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter::after {
+      content: "💌";
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 3rem;
+      opacity: .12;
+      transform: rotate(12deg);
+    }
+
+    .letter h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+
+    .letter p {
+      color: #d9c1cb;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    /* SONGS */
+    .playlist {
+      display: grid;
+      gap: 14px;
+      max-width: 820px;
+      margin: auto;
+    }
+
+    .song {
+      border-radius: 22px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 54px 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .album {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(255,92,149,.55), rgba(246,216,168,.18));
+      font-size: 1.45rem;
+    }
+
+    .song h3 { margin: 0 0 4px; font-size: 1rem; }
+    .song p { margin: 0; color: #c6abb5; font-size: .82rem; }
+
+    .play {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.08);
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* MESSAGE */
+    .big-love-note {
+      max-width: 850px;
+      margin: auto;
+      border-radius: 30px;
+      padding: clamp(30px, 6vw, 65px);
+      text-align: center;
+    }
+
+    .big-love-note .script {
+      font-size: clamp(3.3rem, 8vw, 6.1rem);
+      color: #ffd6e3;
+      margin-bottom: 22px;
+    }
+
+    .big-love-note p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.7rem);
+      line-height: 1.8;
+      color: #f0e1e7;
+    }
+
+    .quote-highlight {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    /* BUTTONS */
+    .fun-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+
+    .fun-card {
+      border-radius: 24px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .fun-card .icon { font-size: 2rem; margin-bottom: 12px; }
+    .fun-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.7rem; }
+    .fun-card p { color: #ccb4be; min-height: 48px; line-height: 1.6; }
+
+    /* WISH */
+    .wish-stage {
+      text-align: center;
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wish-star {
+      font-size: 5rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      filter: drop-shadow(0 0 25px rgba(255,220,140,.5));
+      animation: starPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes starPulse {
+      50% { transform: scale(1.12) rotate(4deg); }
+    }
+
+    /* FINAL */
+    .final {
+      min-height: 90svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .final h2 {
+      font-size: clamp(3.3rem, 9vw, 6.6rem);
+      margin-bottom: 20px;
+    }
+
+    .final p {
+      max-width: 780px;
+      margin: 0 auto 32px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      color: #ead8df;
+      line-height: 1.75;
+    }
+
+    .question-box {
+      margin-top: 50px;
+      position: relative;
+      min-height: 190px;
+      border-radius: 25px;
+      padding: 30px;
+    }
+
+    .question-box h3 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .choice-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 22px;
+      position: relative;
+      min-height: 65px;
+    }
+
+    #noBtn {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: grid;
+      place-items: center;
+      background: rgba(4,2,5,.72);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s ease;
+      padding: 20px;
+    }
+
+    .modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      width: min(560px,100%);
+      border-radius: 26px;
+      padding: 34px;
+      text-align: center;
+    }
+
+    .modal-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.35rem;
+      margin-bottom: 12px;
+    }
+
+    .modal-card p {
+      line-height: 1.8;
+      color: #e5d1d9;
+      margin-bottom: 22px;
+    }
+
+    /* floating hearts */
+    .heart-pop {
+      position: fixed;
+      pointer-events: none;
+      z-index: 3000;
+      font-size: 22px;
+      animation: floatHeart 2.2s ease-out forwards;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(0) scale(.5) rotate(0); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translateY(-180px) scale(1.4) rotate(18deg); opacity: 0; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px 16px 55px;
+      color: #987f89;
+      font-size: .8rem;
+    }
+
+    @media (max-width: 780px) {
+      .section { padding: 80px 0; }
+      .counter-box { grid-template-columns: repeat(2,1fr); }
+      .story-card { grid-template-columns: 1fr; text-align: center; }
+      .reasons-grid, .fun-grid { grid-template-columns: 1fr; }
+      .letters { grid-template-columns: 1fr; }
+      .song { grid-template-columns: 50px 1fr auto; }
+      .gallery { columns: 2 150px; }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+<audio id="openingMusic" src="all-of-me.mp3" autoplay loop preload="auto"></audio>
+
+<canvas id="starfield"></canvas>
+<div class="grain"></div>
+
+<!-- INTRO SCREEN -->
+<div class="intro" id="intro">
+  <div class="intro-card">
+    <div class="intro-heart">❤️</div>
+    <div class="eyebrow">Something small, for someone who means everything</div>
+    <h1 class="script">Hey, Tharu Panchi...</h1>
+    <p>
+      I could have sent you another message.<br>
+      But you deserve something I made just for you.
+    </p>
+    <button class="btn" id="enterBtn">Enter our little universe ✨</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content fade-up">
+    <div class="eyebrow">Kavinda × Tharu • since 07.08.2025</div>
+    <h1 class="script">My Chutii Manika</h1>
+    <p class="lead">
+      Somewhere between the laughs, the cuddles, the little arguments,
+      the random moments and the quiet ones… you became my best friend,
+      my safest place, and the most important person in my life.
+    </p>
+    <p class="hero-mini">This little place on the internet belongs to us. ❤️</p>
+  </div>
+  <div class="scroll-hint">scroll into our story ↓</div>
+</header>
+
+<main>
+  <!-- COUNTER -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">Our time</div>
+        <h2 class="serif">Since the day it became <em>us</em></h2>
+        <p>From 7 August 2025 — and still counting every beautiful second.</p>
+      </div>
+
+      <div class="counter-box fade-up">
+        <div class="counter-item glass"><strong id="days">0</strong><span>days</span></div>
+        <div class="counter-item glass"><strong id="hours">0</strong><span>hours</span></div>
+        <div class="counter-item glass"><strong id="minutes">0</strong><span>minutes</span></div>
+        <div class="counter-item glass"><strong id="seconds">0</strong><span>seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEGINNING -->
+  <section class="section">
+    <div class="wrap">
+      <div class="story-card glass fade-up">
+        <div class="date-badge">
+          <div>
+            <div class="day">07</div>
+            <div class="month">August 2025</div>
+          </div>
+        </div>
+        <div class="story-copy">
+          <div class="eyebrow">Chapter one</div>
+          <h3>Our first date.</h3>
+          <p>
+            I didn't know that one ordinary date would become the beginning of
+            so many memories I would never want to lose.
+          </p>
+          <p>
+            Since then, you've become the person I want to tell everything to,
+            laugh with, annoy, protect, cuddle with, grow with… and keep choosing.
+          </p>
+          <p>
+            If I could go back to that day knowing everything I know now,
+            I'd still walk into it and choose you all over again.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="section" id="memories">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">Pieces of us</div>
+        <h2 class="serif">Our little memory wall</h2>
+      </div>
+
+      <div class="gallery fade-up">
+        <figure class="photo-card" style="--r:-1.5deg"><img src="1.jpeg" alt="Us 1"><figcaption>one of my favourite humans</figcaption></figure>
+        <figure class="photo-card" style="--r:1deg"><img src="2.jpeg" alt="Us 2"><figcaption>my safe place</figcaption></figure>
+        <figure class="photo-card" style="--r:-.7deg"><img src="3.jpeg" alt="Us 3"><figcaption>pretty girl 🤍</figcaption></figure>
+        <figure class="photo-card" style="--r:1.5deg"><img src="4.jpeg" alt="Us 4"><figcaption>just us</figcaption></figure>
+        <figure class="photo-card" style="--r:-1deg"><img src="5.jpeg" alt="Us 5"><figcaption>my Tharu panchi</figcaption></figure>
+        <figure class="photo-card" style="--r:.8deg"><img src="6.jpeg" alt="Us 6"><figcaption>home, somehow</figcaption></figure>
+        <figure class="photo-card" style="--r:-1.4deg"><img src="7.jpeg" alt="Us 7"><figcaption>my favourite smile</figcaption></figure>
+        <figure class="photo-card" style="--r:1.1deg"><img src="8.jpeg" alt="Us 8"><figcaption>another page of us</figcaption></figure>
+        <figure class="photo-card" style="--r:-.8deg"><img src="9.jpeg" alt="Us 9"><figcaption>my Ummi bolee 🥹</figcaption></figure>
+        <figure class="photo-card" style="--r:1.6deg"><img src="10.jpeg" alt="Us 10"><figcaption>I'd choose this again</figcaption></figure>
+        <figure class="photo-card" style="--r:-1.3deg"><img src="11.jpeg" alt="Us 11"><figcaption>you make life softer</figcaption></figure>
+        <figure class="photo-card" style="--r:.9deg"><img src="12.jpeg" alt="Us 12"><figcaption>my best friend</figcaption></figure>
+        <figure class="photo-card" style="--r:-.6deg"><img src="13.jpeg" alt="Us 13"><figcaption>little forever moments</figcaption></figure>
+        <figure class="photo-card" style="--r:1.2deg"><img src="14.jpeg" alt="Us 14"><figcaption>where time slows down</figcaption></figure>
+        <figure class="photo-card" style="--r:-1deg"><img src="15.jpeg" alt="Us 15"><figcaption>you, always you</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">Tap the cards</div>
+        <h2 class="serif">A few reasons I love you</h2>
+        <p>There are more than six. Obviously. These are just the ones I managed to fit here.</p>
+      </div>
+
+      <div class="reasons-grid fade-up">
+        <div class="reason glass">
+          <div class="emoji">🫂</div>
+          <div class="hidden-reason">Because your cuddles somehow make the whole world feel quiet.</div>
+          <small>tap to reveal</small>
+        </div>
+
+        <div class="reason glass">
+          <div class="emoji">🤍</div>
+          <div class="hidden-reason">Because you're not only the girl I love — you're genuinely my best friend.</div>
+          <small>tap to reveal</small>
+        </div>
+
+        <div class="reason glass">
+          <div class="emoji">🌙</div>
+          <div class="hidden-reason">Because even an ordinary day feels different when I get to spend it with you.</div>
+          <small>tap to reveal</small>
+        </div>
+
+        <div class="reason glass">
+          <div class="emoji">🥹</div>
+          <div class="hidden-reason">Because you somehow make me want to protect your soft heart and annoy you at the exact same time.</div>
+          <small>tap to reveal</small>
+        </div>
+
+        <div class="reason glass">
+          <div class="emoji">💋</div>
+          <div class="hidden-reason">Because when you cuddle into me, I genuinely want to kiss you until time forgets to move.</div>
+          <small>tap to reveal</small>
+        </div>
+
+        <div class="reason glass">
+          <div class="emoji">♾️</div>
+          <div class="hidden-reason">Because out of everyone in this enormous world, you're the person I want beside me for the chapters I haven't lived yet.</div>
+          <small>tap to reveal</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN WHEN -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">For whenever you need me</div>
+        <h2 class="serif">Open when...</h2>
+      </div>
+
+      <div class="letters fade-up">
+        <div class="letter glass">
+          <h3>...you miss me.</h3>
+          <p>I know a website can't hug you, so this will have to pretend until I can.</p>
+          <button class="btn secondary letterBtn"
+            data-title="When you miss me ❤️"
+            data-message="Close your eyes for a second and imagine me pulling you close, kissing your forehead, and telling you that I miss you too. A lot. Probably more than I will admit when you're teasing me.">
+            Open this
+          </button>
+        </div>
+
+        <div class="letter glass">
+          <h3>...you've had a bad day.</h3>
+          <p>You don't have to be strong every second, chuti manika.</p>
+          <button class="btn secondary letterBtn"
+            data-title="Bad day? Come here 🫂"
+            data-message="Whatever happened today does not change how wonderful you are. You can be tired. You can be upset. You can complain to me about the same thing ten times. I still want to be your safe place at the end of it.">
+            Open this
+          </button>
+        </div>
+
+        <div class="letter glass">
+          <h3>...you doubt yourself.</h3>
+          <p>For the days you forget how special you are.</p>
+          <button class="btn secondary letterBtn"
+            data-title="Read this carefully, panchi ✨"
+            data-message="You are stronger than you realise, softer than this world deserves, and more capable than you give yourself credit for. I hope one day you can see yourself the way I see you.">
+            Open this
+          </button>
+        </div>
+
+        <div class="letter glass">
+          <h3>...you can't sleep.</h3>
+          <p>A tiny good-night hug hidden inside a button.</p>
+          <button class="btn secondary letterBtn"
+            data-title="Sleep, Ummi bolee 🌙"
+            data-message="Put the phone down soon, get comfortable, and pretend my arms are around you. I hope tonight is gentle with you. Good night, my pretty girl.">
+            Open this
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">Press play</div>
+        <h2 class="serif">Songs that sound like love</h2>
+        <p>
+       
+          <strong>all-of-me.mp3</strong>,
+          <strong>cant-help-falling-in-love.mp3</strong>,
+          <strong>a-thousand-years.mp3</strong>.
+        </p>
+      </div>
+
+      <div class="playlist fade-up">
+        <div class="song glass">
+          <div class="album">🎵</div>
+          <div><h3>All of Me</h3><p>For loving every version of each other.</p></div>
+          <button class="play" data-audio="song1">▶</button>
+          <audio id="song1" src="all-of-me.mp3"></audio>
+        </div>
+
+        <div class="song glass">
+          <div class="album">🎙️</div>
+          <div><h3>Can't Help Falling in Love</h3><p>Because sometimes love feels that simple.</p></div>
+          <button class="play" data-audio="song2">▶</button>
+          <audio id="song2" src="cant-help-falling-in-love.mp3"></audio>
+        </div>
+
+        <div class="song glass">
+          <div class="album">✨</div>
+          <div><h3>A Thousand Years</h3><p>For all the time we've had — and all the time ahead.</p></div>
+          <button class="play" data-audio="song3">▶</button>
+          <audio id="song3" src="a-thousand-years.mp3"></audio>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE LOVE NOTE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="big-love-note glass fade-up">
+        <div class="script">To my Tharu Panchi</div>
+        <p>
+          You are one of the best things that has happened to my life.
+          Somewhere along the way, you became more than the person I love.
+          You became the person I want beside me when something wonderful happens,
+          when everything goes wrong, when I have absolutely nothing important to say,
+          and when I simply need to feel like myself again.
+        </p>
+        <p>
+          You're my <span class="quote-highlight">best friend</span>,
+          my chuti manika, my Ummi bolee, my favourite person to annoy,
+          my favourite person to hold, and the person whose presence makes
+          even ordinary moments matter.
+        </p>
+        <p>
+          And when you cuddle into me?
+          I swear I just want to hold you there and
+          <span class="quote-highlight">kiss you until time ends.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUN BUTTONS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-title fade-up">
+        <div class="eyebrow">Important technology</div>
+        <h2 class="serif">Emergency relationship buttons</h2>
+      </div>
+
+      <div class="fun-grid fade-up">
+        <div class="fun-card glass">
+          <div class="icon">❤️</div>
+          <h3>Love me button</h3>
+          <p>Scientifically proven to produce one Kavinda-approved love message.</p>
+          <button class="btn" id="loveBtn">Give me love</button>
+        </div>
+
+        <div class="fun-card glass">
+          <div class="icon">💋</div>
+          <h3>Emergency kisses</h3>
+          <p>For severe cases of missing me and dangerously low kiss levels.</p>
+          <button class="btn" id="kissBtn">Deploy kisses</button>
+        </div>
+
+        <div class="fun-card glass">
+          <div class="icon">🧸</div>
+          <h3>Need a cuddle?</h3>
+          <p>Not quite the real thing. But made with the correct intention.</p>
+          <button class="btn" id="cuddleBtn">Cuddle me</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISH -->
+  <section class="section">
+    <div class="wrap">
+      <div class="wish-stage glass fade-up">
+        <div>
+          <div class="eyebrow">Make a tiny wish</div>
+          <h2 class="serif">Pick this star, panchi.</h2>
+          <button class="wish-star" id="wishStar" aria-label="Make a wish">⭐</button>
+          <p id="wishText" style="color:#d8c3cb;margin:16px 20px 0;">Tap it, close your eyes, and make a wish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="section final">
+    <div class="wrap fade-up">
+      <div class="eyebrow">One more thing</div>
+      <h2 class="script">I choose you.</h2>
+
+      <p>
+        There are thousands of photographs we haven't taken,
+        places we haven't visited, stupid jokes we haven't made,
+        difficult days we haven't faced and beautiful memories we haven't created yet.
+      </p>
+
+      <p>
+        I don't know exactly what every part of the future will look like.
+        I just know that when I imagine the good parts of it,
+        you're there.
+      </p>
+
+      <div class="question-box glass" id="questionBox">
+        <h3>So, Tharu Panchi… will you keep making memories with me? ❤️</h3>
+        <div class="choice-row">
+          <button class="btn" id="yesBtn">YES, obviously ❤️</button>
+          <button class="btn secondary" id="noBtn">No 😒</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Made with a ridiculous amount of love for Tharu Panchi ❤️
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-card glass">
+    <h3 id="modalTitle">For you ❤️</h3>
+    <p id="modalText"></p>
+    <button class="btn" id="closeModal">Come here 🫶</button>
+  </div>
+</div>
+
+<script>
+  // ---------------------------------------------------------
+  // EASY SETTINGS
+  // ---------------------------------------------------------
+  const relationshipStart = new Date("2025-08-07T00:00:00+05:30");
+
+  // Intro + immediate romantic soundtrack
+  const intro = document.getElementById("intro");
+  const openingMusic = document.getElementById("openingMusic");
+
+  openingMusic.volume = 0.32;
+
+  async function startOpeningMusic() {
+    try {
+      if (openingMusic.paused) {
+        await openingMusic.play();
+      }
+    } catch (err) {
+      // Most modern browsers block audible autoplay until the first interaction.
+      console.log("Autoplay blocked — music will start on the first tap/click.");
+    }
+  }
+
+  // Try to play All of Me as soon as the page opens.
+  window.addEventListener("load", startOpeningMusic);
+
+  // If the browser blocks autoplay, the very first interaction starts it.
+  ["click", "touchstart", "pointerdown", "keydown"].forEach(eventName => {
+    document.addEventListener(eventName, startOpeningMusic, { once: true });
+  });
+
+  document.getElementById("enterBtn").addEventListener("click", async () => {
+    await startOpeningMusic();
+    intro.classList.add("hidden");
+    document.body.classList.remove("locked");
+    heartBurst(window.innerWidth/2, window.innerHeight/2, 18);
+  });
+
+  // Live relationship counter
+  function updateCounter() {
+    let diff = Date.now() - relationshipStart.getTime();
+    if (diff < 0) diff = 0;
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("days").textContent = days.toLocaleString();
+    document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
+  }
+  updateCounter();
+  setInterval(updateCounter, 1000);
+
+  // Reveal reason cards
+  document.querySelectorAll(".reason").forEach(card => {
+    card.addEventListener("click", () => card.classList.toggle("revealed"));
+  });
+
+  // Modal helpers
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalText = document.getElementById("modalText");
+
+  function showModal(title, message) {
+    modalTitle.textContent = title;
+    modalText.textContent = message;
+    modal.classList.add("show");
+  }
+
+  document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("show"));
+  modal.addEventListener("click", e => {
+    if (e.target === modal) modal.classList.remove("show");
+  });
+
+  // Open When letters
+  document.querySelectorAll(".letterBtn").forEach(btn => {
+    btn.addEventListener("click", () => showModal(btn.dataset.title, btn.dataset.message));
+  });
+
+  // Music player
+  let currentAudio = null;
+  let currentButton = null;
+
+  document.querySelectorAll(".play").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const audio = document.getElementById(btn.dataset.audio);
+
+      // Stop the opening soundtrack before starting a manually selected song.
+      if (!openingMusic.paused && audio !== openingMusic) {
+        openingMusic.pause();
+      }
+
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        if (currentButton) currentButton.textContent = "▶";
+      }
+
+      if (audio.paused) {
+        try {
+          await audio.play();
+          btn.textContent = "❚❚";
+          currentAudio = audio;
+          currentButton = btn;
+        } catch {
+          showModal("Tiny music problem 🎵", "Make sure the MP3 file is in the same folder as this website and has the exact filename shown in the music section.");
+        }
+      } else {
+        audio.pause();
+        btn.textContent = "▶";
+      }
+    });
+  });
+
+  document.querySelectorAll("audio").forEach(audio => {
+    audio.addEventListener("ended", () => {
+      if (currentButton) currentButton.textContent = "▶";
+      currentAudio = null;
+      currentButton = null;
+    });
+  });
+
+  // Random love messages
+  const loveMessages = [
+    "In another lifetime, I'd still look for you.",
+    "You're still my favourite notification.",
+    "I hope you know how loved you are — especially by me.",
+    "Even on boring days, you make my life feel full.",
+    "You're my best friend with bonus kisses.",
+    "I love your soft heart, your chaos, your smile, and all the tiny things that make you you.",
+    "I don't need a perfect life. I just want one that keeps having you in it.",
+    "I would choose your sleepy face over a thousand perfect sunsets.",
+    "You're the person I want to come home to, even when home is just a hug.",
+    "My favourite place is somewhere between your arms and your smile."
+  ];
+
+  document.getElementById("loveBtn").addEventListener("click", () => {
+    const msg = loveMessages[Math.floor(Math.random()*loveMessages.length)];
+    showModal("For my Tharu Panchi ❤️", msg);
+  });
+
+  // Kisses
+  function heartBurst(x, y, count = 24, symbol = null) {
+    const icons = symbol ? [symbol] : ["❤️","💕","💗","💖","💋"];
+    for (let i=0; i<count; i++) {
+      const h = document.createElement("div");
+      h.className = "heart-pop";
+      h.textContent = icons[Math.floor(Math.random()*icons.length)];
+      h.style.left = (x + (Math.random()-.5)*180) + "px";
+      h.style.top = (y + (Math.random()-.5)*80) + "px";
+      h.style.animationDelay = (Math.random()*.45) + "s";
+      h.style.fontSize = (18 + Math.random()*22) + "px";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 2600);
+    }
+  }
+
+  document.getElementById("kissBtn").addEventListener("click", e => {
+    const r = e.target.getBoundingClientRect();
+    heartBurst(r.left+r.width/2, r.top, 35, "💋");
+    showModal("Emergency kisses successfully deployed 💋", "Side effects may include smiling at your phone and wanting the real version immediately.");
+  });
+
+  document.getElementById("cuddleBtn").addEventListener("click", () => {
+    showModal("C'mere, chuti manika 🧸", "Consider this me pulling you closer, wrapping both arms around you and refusing to let go for an unreasonable amount of time.");
+  });
+
+  // Wish
+  document.getElementById("wishStar").addEventListener("click", e => {
+    heartBurst(e.clientX, e.clientY, 25, "✨");
+    document.getElementById("wishText").innerHTML =
+      "Whatever you wished for… <strong style='color:#ffe4ed'>I hope I'm somewhere in it.</strong> ❤️";
+  });
+
+  // Runaway No button
+  const noBtn = document.getElementById("noBtn");
+  const questionBox = document.getElementById("questionBox");
+
+  function runAway() {
+    const box = questionBox.getBoundingClientRect();
+    const btn = noBtn.getBoundingClientRect();
+
+    const maxX = Math.max(10, box.width - btn.width - 35);
+    const maxY = Math.max(10, box.height - btn.height - 25);
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+  }
+
+  ["mouseenter","touchstart","pointerdown"].forEach(evt => noBtn.addEventListener(evt, runAway));
+
+  document.getElementById("yesBtn").addEventListener("click", e => {
+    const r = e.target.getBoundingClientRect();
+    heartBurst(r.left+r.width/2, r.top, 55);
+    showModal(
+      "Correct answer, Ummi bolee ❤️",
+      "Good. Because I'm nowhere near done making memories with you. I love you, Tharu Panchi."
+    );
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: .12 });
+
+  document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+
+  // Starfield canvas
+  const canvas = document.getElementById("starfield");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+
+    const count = Math.floor((window.innerWidth * window.innerHeight) / 8500);
+    stars = Array.from({length: count}, () => ({
+      x: Math.random()*window.innerWidth,
+      y: Math.random()*window.innerHeight,
+      r: Math.random()*1.35 + .25,
+      a: Math.random()*.7 + .2,
+      s: Math.random()*.008 + .002
+    }));
+  }
+
+  function drawStars(t=0) {
+    ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+    stars.forEach((s,i) => {
+      const alpha = Math.max(.1, s.a + Math.sin(t*s.s+i)*.18);
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,240,247,${alpha})`;
+      ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  resizeCanvas();
+  drawStars();
+  window.addEventListener("resize", resizeCanvas);
+
+  // Friendly placeholder behavior if photos are missing
+  document.querySelectorAll(".photo-card img").forEach((img, index) => {
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+      const ph = document.createElement("div");
+      ph.style.cssText = `
+        min-height:220px;border-radius:12px;display:grid;place-items:center;
+        background:linear-gradient(145deg,#2b2026,#4d2d3a);color:#f6dce5;
+        text-align:center;padding:24px;font-family:DM Sans,sans-serif;
+      `;
+      ph.innerHTML = `<div><div style="font-size:2rem">📷</div><br>Place <strong>${index+1}.jpeg</strong><br>in this folder</div>`;
+      img.parentNode.insertBefore(ph, img);
+    });
+  });
+</script>
+
+</body>
+</html>
